@@ -45,6 +45,7 @@ class pvi:
         while x <= xn:
             y = y + h*eval(equacao)
             x = x + h
+            x, y = (round(x, 5), round(y, 5))
             pontos.append((x,y))
         
         self.pontos = pontos
@@ -84,6 +85,7 @@ class pvi:
             x = x_aux + h
             y = y_aux + (h/6)*(k1 + 2*(k2+k3) + k4)
             
+            x, y = (round(x, 5), round(y, 5))
             pontos.append((x,y))
         
         self.pontos = pontos
