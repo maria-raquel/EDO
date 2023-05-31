@@ -9,7 +9,6 @@ import numpy as np
         # se não corresponderem, será considerado x0 passado no ponto inicial
     # equacao: string, representa a equacao. ex: 'x**2 + y**2', 'np.sin(x)'
         # deve ser usadas as variáveis x e y na notação
-
 class pvi:
     def __init__(self, ponto_inicial, passo, intervalo, equacao):
         self.x0, self.y0 = ponto_inicial
@@ -82,13 +81,13 @@ class pvi:
             
             k4 = eval(equacao)
             
-            x_proximo = x_anterior + h
-            y_proximo = y_anterior + (h/6)*(k1 + 2*(k2+k3) + k4)
+            x = x_anterior + h
+            y = y_anterior + (h/6)*(k1 + 2*(k2+k3) + k4)
             
-            x_proximo = round(x_proximo, 5)
-            y_proximo = round(y_proximo, 5)
+            x = round(x, 5)
+            y = round(y, 5)
 
-            pontos.append((x_proximo, y_proximo))
+            pontos.append((x, y))
         
         self.pontos = pontos
         return pontos
@@ -100,40 +99,3 @@ class pvi:
 
         plt.plot(x_ex, y_ex, 'o-')
         plt.show()
-    
-    def rg4v2(self):
-        x = self.x0
-        y = self.y0
-        h = self.h
-        xn = self.xn
-        
-        equacao = self.equacao
-        pontos = [(self.x0, self.y0)]
-
-        while x0 < 0.5:
-            k1 = eval(equacao)
-
-            x = x0 + h/2
-            y = y0 + (h/2)*k1
-
-            k2 = eval(equacao)
-
-            y = y0 + (h/2)*k2
-
-            k3 = eval(equacao)
-
-            x = x0 + h
-            y = y0 + h*k3    
-
-            k4 = eval(equacao)
-
-            y = y0 + (0.1/6) * (k1 + 2*k2 + 2*k3 + k4)
-            x = x0 + 0.1
-
-            pontos.append((round(x, 5), round(y, 5)))
-            
-            x0 = x
-            y0 = y
-        
-        self.pontos = pontos
-        return pontos
