@@ -2,9 +2,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+# Classe pvi_sistemas, recebe:
+    # ponto inicial: tupla de floats, representa (x0, y1_0, y2_0). ex: (0,0,1)
+    # passo: float
+    # intervalo: tupla de floats, representa (x0, xn). ex: (0)
+        # x0 no intervalo deve corresponder a x0 do ponto inicial
+        # se não corresponderem, será considerado x0 passado no ponto inicial
+    # equacao: string, representa a equacao. ex: 'x**2 + y1 + y2',
+        # deve ser usadas as variáveis x, y1 e y2 na notação
 class pvi_sistemas():
     def __init__(self, ponto_inicial, passo, intervalo, equacao1, equacao2):
-        self.x0, self.y10, self.y20 = ponto_inicial
+        self.x0, self.y1_0, self.y2_0 = ponto_inicial
         self.h = passo
         self.xn = intervalo[1] # xn é o último ponto do domínio
         self.f1 = equacao1
@@ -30,8 +38,8 @@ class pvi_sistemas():
     # Sobrescreve a lista de pontos do objeto
     def euler(self):
         x = self.x0
-        y1 = self.y10
-        y2 = self.y20
+        y1 = self.y1_0
+        y2 = self.y2_0
         h = self.h
         xn = self.xn
         f1 = self.f1
@@ -53,8 +61,8 @@ class pvi_sistemas():
     # Retorna uma lista de pontos
     def rg4(self):
         x = self.x0
-        y1 = self.y10
-        y2 = self.y20
+        y1 = self.y1_0
+        y2 = self.y2_0
         h = self.h
         xn = self.xn
         f1 = self.f1
