@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 
 # Classe pvi_sistemas, recebe:
@@ -19,7 +20,7 @@ class pvi_2ordem:
         self.x = np.linspace(self.x0 + self.delta_x, self.xf - self.delta_x, N-1)
         self.A = np.zeros((N-1, N-1))
         self.b = np.zeros(N-1)
-        self.y = np.zeros(N-1)
+        self.pontos = []
     
     def p(self, a):
         x = a
@@ -63,6 +64,21 @@ class pvi_2ordem:
                 self.b[i] = -self.r(x)*self.delta_x**2
 
         # TROCAR ISSO AQUI PELO THOMAS
-        self.y = np.linalg.solve(self.A, self.b)
+        y = np.linalg.solve(self.A, self.b)
 
-        return self.y
+        # Adicionando os pontos x e y na lista de pontos
+        self.pontos.append((self.x0, self.y0))
+        for i in range(self.N-1):
+            xi = round(self.x[i], 5)
+            yi = round(y[i], 5)
+            self.pontos.append((xi,yi))
+        self.pontos.append((self.xf, self.yf))
+
+        return y
+    
+    def plottar(self):
+        x_ex = [ponto[0] for ponto in self.pontos]
+        y_ex = [ponto[1] for ponto in self.pontos]
+
+        plt.plot(x_ex, y_ex, 'o-')
+        plt.show()
