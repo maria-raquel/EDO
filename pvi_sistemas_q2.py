@@ -5,7 +5,7 @@ from mpl_toolkits.mplot3d import Axes3D
 # Classe pvi_sistemas, recebe:
     # ponto inicial: tupla de floats, representa (x0, y1_0, y2_0). ex: (0,0,1)
     # passo: float
-    # intervalo: tupla de floats, representa (x0, xn). ex: (0)
+    # intervalo: tupla de floats, representa (x0, xn). ex: (0,1)
         # x0 no intervalo deve corresponder a x0 do ponto inicial
         # se não corresponderem, será considerado x0 passado no ponto inicial
     # equacao: string, representa a equacao. ex: 'x**2 + y1 + y2',
