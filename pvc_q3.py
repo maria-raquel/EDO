@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import thomas
 
 # Classe pvc, recebe:
     # ponto inicial: tupla de floats, representa (x0, y0). ex: (0,0)
@@ -67,8 +68,8 @@ class pvc:
             else: # demais elementos
                 self.b[i] = -self.r(x)*self.delta_x**2
 
-        # TROCAR ISSO AQUI PELO THOMAS
-        y = np.linalg.solve(self.A, self.b)
+        # Resolvendo o sistema linear com o algoritmo de Thomas
+        y = thomas.solve_tridiag(self.A, self.b)
 
         # Adicionando os pontos x e y na lista de pontos
         self.pontos.append((self.x0, self.y0))
