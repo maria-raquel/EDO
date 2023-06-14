@@ -59,6 +59,7 @@ class pvi_sistemas():
     
     # Resolve o PVI com o método de Runge Kutta de 4ª ordem
     # Retorna uma lista de pontos
+    # Sobrescreve a lista de pontos do objeto
     def rg4(self):
         x = self.x0
         y1 = self.y1_0
@@ -108,6 +109,7 @@ class pvi_sistemas():
         self.pontos = pontos
         return pontos
     
+    # Gera o gráfico da função
     def plottar(self):
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
