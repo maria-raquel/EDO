@@ -4,7 +4,7 @@ import numpy as np
 # Classe pvi, recebe:
     # ponto inicial: tupla de floats, representa (x0, y0). ex: (0,0)
     # passo: float
-    # intervalo: tupla de floats, representa (x0, xn). ex: (0)
+    # intervalo: tupla de floats, representa (x0, xn). ex: (0,1)
         # x0 no intervalo deve corresponder a x0 do ponto inicial
         # se não corresponderem, será considerado x0 passado no ponto inicial
     # equacao: string, representa a equacao. ex: 'x**2 + y**2', 'np.sin(x)'
