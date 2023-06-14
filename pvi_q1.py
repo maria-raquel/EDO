@@ -92,7 +92,7 @@ class pvi:
         self.pontos = pontos
         return pontos
     
-    # gera o gráfico com os pontos encontrados
+    # Gera o gráfico com os pontos encontrados
     def plottar(self):
         x_ex = [ponto[0] for ponto in self.pontos]
         y_ex = [ponto[1] for ponto in self.pontos]
